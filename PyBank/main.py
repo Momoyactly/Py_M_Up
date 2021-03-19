@@ -16,7 +16,7 @@ for i, profit_in_month in enumerate(csv_in_array[1]):
 
 first_month, first_year = csv_in_array[0][0].split("-")
 last_month, last_year   = csv_in_array[0][-1].split("-")
-Analysis = []
+Analysis = ["Financial Analysis", "----------------------------"]
 Analysis.append("Total months: "+str(list(calendar.month_abbr).index(last_month)
                                 + 12*int(last_year)
                                 - list(calendar.month_abbr).index(first_month)
@@ -26,16 +26,16 @@ Analysis.append("Total months: "+str(list(calendar.month_abbr).index(last_month)
 
 Analysis.append("total: $"+str(sum(csv_in_array[1])))
 
-Analysis.append("Average Change: "
+Analysis.append("Average Change: $"
                 + str(sum(csv_in_array[1])/len(csv_in_array[1])))
 
 Analysis.append("Greatest Increase in Profits: "
-    + csv_in_array[0][csv_in_array[1].index(max(csv_in_array[1]))] + " "
-    + str(csv_in_array[1][csv_in_array[1].index(max(csv_in_array[1]))]))
+    + csv_in_array[0][csv_in_array[1].index(max(csv_in_array[1]))] + " $("
+    + str(csv_in_array[1][csv_in_array[1].index(max(csv_in_array[1]))])+")")
 
 Analysis.append("Greatest Increase in Profits: "
-    + csv_in_array[0][csv_in_array[1].index(min(csv_in_array[1]))] + " "
-    + str(csv_in_array[1][csv_in_array[1].index(min(csv_in_array[1]))]))
+    + csv_in_array[0][csv_in_array[1].index(min(csv_in_array[1]))] + " $("
+    + str(csv_in_array[1][csv_in_array[1].index(min(csv_in_array[1]))])+")")
 
 with open(os.getcwd() + "/PyBank/Analysis/Analysis.txt","w+") as file:
     for row in Analysis :
