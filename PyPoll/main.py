@@ -3,10 +3,13 @@ import os
 
 m =[]
 with open(os.getcwd() + "/PyPoll/Resources/election_data.csv", mode='r') as csvfile:
-    csvreader = csv.reader(csvfile, delimiter=',')
-    csv_header = next(csvreader)
-    for counter, row in enumerate(csvfile):
-        m.append(row.split(","))
+    csv_reader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csv_reader)
+    for row in csvfile:
+        row.replace("\n","")
+        Vouter_ID, County, Candidate = row.split(",")
+        m.append([Vouter_ID,County,Candidate])
+
 
 Analysis = ["Election Results", "-------------------------"]
 Analysis.append("Total votes: " + str(len(m)))

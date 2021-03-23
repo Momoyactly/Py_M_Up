@@ -6,8 +6,9 @@ with open(os.getcwd() + "/PyBank/Resources/budget_data.csv", mode='r') as csvfil
     csv_reader = csv.reader(csvfile, delimiter=',')
     csv_header = next(csv_reader)
     for row in csvfile:
+        row.replace("\n","")
         date, profit = row.split(",")
-        m.append([date,int(profit.replace("\n",""))])
+        m.append([date,int(profit)])
 
 
 csv_in_array = [[m[j][i] for j in range(len(m))] for i in range(len(m[0]))] 
